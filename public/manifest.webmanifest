@@ -1,0 +1,14 @@
+{
+  "name": "Bütçemasyon",
+  "short_name": "Bütçemasyon",
+  "description": "Premium bütçe takibi: gelir-gider akışı, kategori dağılımı ve aylık geçmiş.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0F1224",
+  "theme_color": "#5B4BE0",
+  "icons": [
+    { "src": "/app-icon.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" },
+    { "src": "/app-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
