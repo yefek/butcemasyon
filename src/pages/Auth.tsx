@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, AtSign, CircleCheck, Eye, EyeOff, Lock, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
+import { AuthInformation } from "@/budget/components/AuthInformation";
 import { AppBrand } from "@/budget/components/AppBrand";
 import { ONBOARDING_KEY } from "@/budget/onboarding";
 import { usePublicTheme } from "@/budget/usePublicTheme";
@@ -98,19 +99,20 @@ export default function AuthPage() {
   return (
     <div className="public-shell v2-root min-h-screen">
       <main
-        className="min-h-screen w-full max-w-sm mx-auto px-5"
+        className="auth-layout min-h-screen w-full max-w-sm mx-auto px-5"
         style={{
           paddingTop: "calc(var(--safe-top) + 0.75rem)",
           paddingBottom: "calc(var(--safe-bottom) + 1.25rem)",
         }}
       >
-        <header className="h-11 flex items-center justify-between">
+        <header className="auth-header h-11 flex items-center justify-between">
+          <AppBrand size="lg" className="hidden lg:flex" />
           <button
             type="button"
             onClick={() => navigate("/welcome")}
             aria-label="Tanıtım ekranına dön"
             title="Geri"
-            className="press w-10 h-10 rounded-full border flex items-center justify-center"
+            className="press w-10 h-10 rounded-full border flex items-center justify-center lg:hidden"
             style={{ borderColor: "hsl(var(--v2-border))" }}
           >
             <ArrowLeft size={18} />
@@ -118,8 +120,10 @@ export default function AuthPage() {
           <span className="w-10" aria-hidden />
         </header>
 
-        <section className="mt-12">
-          <AppBrand size="lg" className="mb-8" />
+        <div className="auth-columns">
+        <AuthInformation />
+        <section className="auth-form mt-12">
+          <AppBrand size="lg" className="mb-8 lg:hidden" />
 
           <div className="v2-seg" role="tablist" aria-label="Hesap işlemi">
             <button
@@ -242,6 +246,7 @@ export default function AuthPage() {
             <span>Verilerin hesabına özel tutulur ve cihazların arasında senkronlanır.</span>
           </div>
         </section>
+        </div>
       </main>
     </div>
   );

@@ -460,6 +460,44 @@ body:has(.v2-root) {
   background: hsl(var(--primary));
 }
 
+.auth-information { display: none; }
+.auth-slide-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: hsl(var(--v2-text-muted));
+}
+.auth-slide-control:hover { background: hsl(var(--v2-surface-2)); }
+.auth-slide-control:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 3px; }
+
+@media (min-width: 1024px) {
+  .auth-layout { max-width: 1100px; padding-left: 48px; padding-right: 48px; }
+  .auth-header { height: 72px; }
+  .auth-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 400px) minmax(0, 384px);
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    min-height: calc(100svh - 116px);
+    padding: 24px 0 32px;
+  }
+  .auth-information { display: block; min-width: 0; }
+  .auth-slide { min-height: 405px; animation: auth-slide-enter 650ms ease both; }
+  .auth-form { margin-top: 0; min-width: 0; }
+}
+
+@keyframes auth-slide-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-slide { animation: none; }
+}
+
 body:has(.public-shell) {
   background-image: none !important;
   background-color: hsl(220 28% 97%) !important;

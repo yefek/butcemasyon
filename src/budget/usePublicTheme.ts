@@ -19,6 +19,6 @@ export function usePublicTheme() {
     }
 
     document.documentElement.classList.toggle("dark", settings.dark !== false);
-    document.documentElement.setAttribute("data-theme", settings.themeId ?? "midnight");
+    document.documentElement.setAttribute("data-theme", "midnight");
   }, []);
 }
